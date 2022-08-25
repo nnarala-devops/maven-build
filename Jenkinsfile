@@ -20,7 +20,7 @@ pipeline {
         }
         stage ('Test') {
             steps {
-                eco 'Tesing the code'
+                echo 'Tesing the code'
             }
         }
     }

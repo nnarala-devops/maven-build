@@ -10,17 +10,17 @@ pipeline {
         stage ('Clean') {
 
             steps {
-                sh 'cleaning the code'
+                echo 'cleaning the code'
             }
         }
         stage ('Compile') {
             steps {
-                sh 'compliling the code'
+                echo 'compliling the code'
             }
         }
         stage ('Test') {
             steps {
-                sh 'Tesing the code'
+                echo 'Tesing the code'
             }
         }
     }

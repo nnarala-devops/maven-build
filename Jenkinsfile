@@ -2,30 +2,26 @@ pipeline {
     agent any
 
     stages {
-        stage ('Compile Stage') {
-
-            steps {
-                withMaven(maven : 'maven_3_5_0') {
-                    sh 'mvn clean compile'
-                }
+        stage('Checkout Git repository') {
+           steps {
+               git branch: 'main', changelog: false, credentialsId: '0bc0fed2-a14c-4ed0-a5c1-562fc5af2e86', poll: false, url: 'https://github.com/nnarala-devops/maven-build.git' 
             }
         }
 
-        stage ('Testing Stage') {
+        stage ('Clean') {
 
             steps {
-                withMaven(maven : 'maven_3_5_0') {
-                    sh 'mvn test'
-                }
+                sh 'cleaning the code'
             }
         }
-
-
-        stage ('Deployment Stage') {
+        stage ('Compile') {
             steps {
-                withMaven(maven : 'maven_3_5_0') {
-                    sh 'mvn deploy'
-                }
+                sh 'compliling the code'
+            }
+        }
+        stage ('Test') {
+            steps {
+                sh 'Tesing the code'
             }
         }
     }

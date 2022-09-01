@@ -25,11 +25,6 @@ pipeline {
                 sh 'mvn test'
             }
         }
-        stage ('build') {
-            steps {
-                echo 'build the code'
-                sh 'mvn package'
-            }
-        }
+        
     }
 }

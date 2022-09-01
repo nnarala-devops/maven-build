@@ -16,11 +16,19 @@ pipeline {
         stage ('Compile') {
             steps {
                 echo 'compliling the code'
+                sh 'mvn compile'
             }
         }
         stage ('Test') {
             steps {
                 echo 'Tesing the code'
+                sh 'mvn test'
+            }
+        }
+        stage ('build') {
+            steps {
+                echo 'build the code'
+                sh 'mvn package'
             }
         }
     }
